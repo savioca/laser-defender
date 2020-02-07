@@ -30,9 +30,7 @@ public class Player : MonoBehaviour
         Move();
         Fire();
     }
-
     
-
     private void Fire()
     {
         if (Input.GetButtonDown("Fire1"))
