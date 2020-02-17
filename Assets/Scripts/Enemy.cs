@@ -5,22 +5,53 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] float health = 100;
+    [SerializeField] float shotCounter;
+    [SerializeField] float minBetweenShots = 0.2f;
+    [SerializeField] float maxTimeBetweenShots = 3;
+    [SerializeField] GameObject projectile;
+    [SerializeField] float projectileSpeed = 10f;
     // Start is called before the first frame update
     void Start()
     {
-        
+        shotCounter = Random.Range(minBetweenShots, maxTimeBetweenShots);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        CountDownAndShoot();
+    }
+    private void CountDownAndShoot()
+    {
+        shotCounter -= Time.deltaTime;
+        if(shotCounter <= 0f)
+        {
+            Fire();
+            shotCounter = Random.Range(minBetweenShots, maxTimeBetweenShots);
+        }
+    }
+    private void Fire()
+    {
+        GameObject laser = Instantiate(
+            projectile,
+            transform.position,
+            Quaternion.identity
+            ) as GameObject;
+        laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
-        health -= damageDealer.GetDamage();
+        ProcessHit(damageDealer);
     }
 
+    private void ProcessHit(DamageDealer damageDealer)
+    {
+        health -= damageDealer.GetDamage();
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 }
