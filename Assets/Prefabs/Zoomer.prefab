@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 114494539122420428}
   - component: {fileID: 114742589307476702}
   - component: {fileID: 58973051467737310}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zoomer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
