@@ -4,22 +4,25 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [Header("projeteis/vida")]
+    [Header("stats")]
     [SerializeField] float health = 100;
-[SerializeField] float minTimeBetweenShots = 0.2f;
-[SerializeField] float maxTimeBetweenShots = 3f;
-[SerializeField] GameObject projectile;
-[SerializeField] float projectileSpeed = 10f;
-    [Header("morte")]
-    [SerializeField] GameObject deathVFX;
-[SerializeField] float durationOfExplosion;
-[SerializeField] AudioClip deathSound;
-[SerializeField] [Range(0,1)] float deathSoundVolume = 0.75f;
-[Header("laser")]
+    [SerializeField] int scoreValue = 150;   
 
-[SerializeField] float shotCounter;
-[SerializeField] AudioClip shootSound;
-[SerializeField] [Range(0, 1)] float shootSoundVolume = 0.75f;
+    [Header("sound effects")]
+    [SerializeField] GameObject deathVFX;
+    [SerializeField] float durationOfExplosion;
+    [SerializeField] AudioClip deathSound;
+    [SerializeField] [Range(0,1)] float deathSoundVolume = 0.75f;
+    [SerializeField] AudioClip shootSound;
+    [SerializeField] [Range(0, 1)] float shootSoundVolume = 0.75f;
+
+    [Header("laser")]
+
+    [SerializeField] float minTimeBetweenShots = 0.2f;
+    [SerializeField] float maxTimeBetweenShots = 3f;
+    [SerializeField] GameObject projectile;
+    [SerializeField] float projectileSpeed = 10f;
+     float shotCounter;
 
     // Use this for initialization
     void Start()
@@ -76,6 +79,7 @@ private void OnTriggerEnter2D(Collider2D other)
 
     private void Die()
     {
+        FindObjectOfType<GameSession>().AddToScore(scoreValue);
         Destroy(gameObject);
         GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
         Destroy(explosion, durationOfExplosion);

@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     [Header("Player")] 
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float padding = 1f;
-    [SerializeField] int Health = 200;
+    [SerializeField] int health = 200;
     [SerializeField] AudioClip deathSound;
     [SerializeField] [Range(0, 1)] float deathSoundVolume = 0.75f;
     [SerializeField] AudioClip shootSound;
@@ -46,8 +46,8 @@ public class Player : MonoBehaviour
     }
     private void ProcessHit(DamageDealer damageDealer)
     {
-        Health -= damageDealer.GetDamage();
-        if (Health <= 0)
+        health -= damageDealer.GetDamage();
+        if (health <= 0)
         {
             Die();
         }
@@ -61,6 +61,10 @@ public class Player : MonoBehaviour
         AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
     }
 
+    public int GetHealth()
+    {
+        return health;
+    }
 
     private void Fire()
     {
@@ -94,11 +98,11 @@ public class Player : MonoBehaviour
         var deltaY = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
 
         var newXPos = Mathf.Clamp(transform.position.x + deltaX, xMin, xMax);
-        var newYPos = Mathf.Clamp(transform.position.y + deltaY, yMin, xMax);
+        var newYPos = Mathf.Clamp(transform.position.y + deltaY, yMin, yMax);
         transform.position = new Vector2(newXPos, newYPos);
     }
-   
-private void SetUpMoveBoundaries()
+
+    private void SetUpMoveBoundaries()
     {
         Camera gameCamera = Camera.main;
         xMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + padding;
@@ -106,5 +110,6 @@ private void SetUpMoveBoundaries()
         yMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + padding;
         yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
     }
+
 
 }
