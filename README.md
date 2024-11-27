@@ -1,3 +1,14 @@
+<style>
+  .markdown-body table {
+    display: block;
+    width: 100%;
+    width: max-content;
+    max-width: 100%;
+    overflow: auto;
+    font-variant: tabular-nums;
+    margin: 0px auto !important;
+}
+</style>
 <h1 align="center">2D Game</h1>
 <p align="center">Project <strong>Laser Defender</strong> developed in 2020</p>
 
@@ -19,7 +30,7 @@
 ## :rocket: Technologies
 </p>
 <div style="width: 100%">
-<table style="margin: 0px auto !important">
+<table>
   <thead>
     <th>Back-end</th>
     <th>Front-end</th>
