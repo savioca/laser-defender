@@ -9,10 +9,9 @@
   <a aria-label="Unity" href="https://github.com/facebook/react/blob/master/CHANGELOG.md#16120-november-14-2019">
     <img src="https://img.shields.io/badge/Made%20with-Unity-57b9d3.svg?style=for-the-badge&logo=unity"></img>
   </a>
-  <a aria-label="Completed" href="#">
-    <img src="https://img.shields.io/badge/OmniStack-done-green?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAALVBMVEVHcExxWsF0XMJzXMJxWcFsUsD///9jRrzY0u6Xh9Gsn9n39fyMecy0qd2bjNJWBT0WAAAABHRSTlMA2Do606wF2QAAAGlJREFUGJVdj1cWwCAIBLEsRU3uf9xobDH8+GZwUYi8i6ucJwrxKE+7D0G9Q4vlYqtmCSjndr4CgCgzlyFgfKfKCVO0LrPKjmiqMxGXkJwNnXskqWG+1oSM+BSwD8f29YLNjvx/OQrn+g99oQSoNmt3PgAAAABJRU5ErkJggg=="></img>
-  </a>
-  <img src="assets/devradar.png" align="center"></img>
+  <img src="Assets/laserdefender.png" align="center"></img>
+<br>
+  <img src="Assets/laserdefendergp.png" align="center"></img>
 </p>
 
 ## :rocket: Technologies
