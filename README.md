@@ -1,5 +1,5 @@
 <style>
-  .markdown-body table {
+  .mycenter table {
     display: block;
     width: 100%;
     width: max-content;
@@ -30,7 +30,7 @@
 ## :rocket: Technologies
 </p>
 <div style="width: 100%">
-<table>
+<table class="mycenter">
   <thead>
     <th>Back-end</th>
     <th>Front-end</th>
