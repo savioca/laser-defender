@@ -19,7 +19,7 @@
 ## :rocket: Technologies
 </p>
 <div style="width: 100%">
-<table style=" margin: 0px auto;">
+<table style="margin: 0px auto !important">
   <thead>
     <th>Back-end</th>
     <th>Front-end</th>
